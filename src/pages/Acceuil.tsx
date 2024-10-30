@@ -18,10 +18,16 @@ const Acceuil: React.FC = () => {
 
         {/* Boutons d'action */}
         <div className="mt-6 flex flex-wrap gap-4">
-          <a href="/en-savoir-plus" className="bg-[#FFD45C] hover:bg-yellow-500 text-black font-semibold py-3 px-6 rounded-md transition duration-300 ease-in-out">
+          <a
+            href="/en-savoir-plus"
+            className="bg-[#024CAA] hover:bg-[#1089FF] text-black font-semibold py-3 px-6 rounded-md transition duration-300 ease-in-out"
+          >
             En savoir +
           </a>
-          <a href="/demander-devis" className="bg-white text-black hover:bg-[#B6F1FF] font-semibold py-3 px-6 rounded-md transition duration-300 ease-in-out">
+          <a
+            href="/demander-devis"
+            className="bg-[#EEEEEE] text-black hover:bg-[#B6F1FF] font-semibold py-3 px-6 rounded-md transition duration-300 ease-in-out"
+          >
             Demander un devis
           </a>
         </div>
