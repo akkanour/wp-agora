@@ -1,196 +1,185 @@
-import React, { useState } from 'react';
-import { Link } from 'react-scroll';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaChevronDown, FaChevronUp } from 'react-icons/fa';
+// @components/Header.tsx
+'use client';
 
-const Header: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
+import { useState } from 'react';
+import {
+  Dialog,
+  DialogPanel,
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+  PopoverGroup,
+} from '@headlessui/react';
+import { Link, useLocation } from 'react-router-dom';
+import { ChevronDownIcon, XMarkIcon, Bars3Icon } from '@heroicons/react/20/solid';
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+const menuItems = [
+  { name: 'Accueil', href: '/' },
+  {
+    name: 'Presentations',
+    subMenu: [
+      { name: 'Qui sommes-nous ?', href: '/presentations/qui-sommes-nous' },
+      { name: 'Partenaires', href: '/presentations/partenaires' },
+      { name: 'Références', href: '/presentations/references' },
+    ],
+  },
+  {
+    name: 'Services',
+    subMenu: [
+      { name: 'Intervention sur Incident', href: '/services/intervention-sur-incident' },
+      { name: 'Contrat de support et Maintenance', href: '/services/contrat-support-maintenance' },
+      { name: 'Infogérance Globale ou Partielle', href: '/services/infogerance-globale-partielle' },
+      { name: 'Ressource en Régie', href: '/services/ressource-en-regie' },
+      { name: 'Intégration ERP', href: '/services/integration-erp' },
+    ],
+  },
+  {
+    name: 'Consulting',
+    subMenu: [
+      { name: 'Étude des besoins', href: '#' },
+      { name: 'Définir le périmètre des Prestations', href: '#' },
+      { name: 'Étude et intégration des Solutions Stratégiques', href: '#' },
+      { name: 'Rapports et Livrables', href: '#' },
+    ],
+  },
+  { name: 'Solutions', href: '/solutions' },
+  { name: 'Contact', href: '/contact' },
+];
 
-  const toggleSubMenu = () => {
-    setIsSubMenuOpen(!isSubMenuOpen);
+export default function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
+  const location = useLocation();
+
+  // Ferme le menu mobile et les sous-menus après une navigation
+  const handleLinkClick = () => {
+    setMobileMenuOpen(false);
+    setOpenSubMenu(null);
   };
 
   return (
-    <header className="w-full bg-white shadow-lg">
-      {/* Top bar with contact info */}
-      <div className="bg-sky-950 text-white py-2">
-        <div className="max-w-screen-xl mx-auto flex flex-col sm:flex-row justify-between items-center space-y-2 sm:space-y-0 px-4">
-          <div className="flex items-center">
-            <FaEnvelope className="mr-2" />
-            <a href="mailto:services@agora-technology.com" className="hover:underline text-sm">
-              services@agora-technology.com
-            </a>
+    <>
+      <header className="fixed top-0 w-full bg-white text-[#23374D] shadow-md z-[1040]">
+        <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-4">
+          <div className="flex lg:flex-1">
+            <Link to="/" className="" onClick={handleLinkClick}>
+              <span className="sr-only">Your Company</span>
+              <img alt="Logo" src="/logo.png" className="h-16 lg:h-20 w-auto" />
+            </Link>
           </div>
-          <div className="flex items-center">
-            <FaMapMarkerAlt className="mr-2" />
-            <span className="text-sm">227, Boulevard Ghandi, Casablanca</span>
-          </div>
-          <div className="flex items-center">
-            <FaPhone className="mr-2" />
-            <span className="text-sm">+212 522 989 026</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Navigation */}
-      <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5">
-        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-          <a className="flex items-center">
-            <img src="./logo.png" className="h-24" alt="Logo Agora Technology" />
-          </a>
-          <div className="lg:hidden">
+          <div className="flex lg:hidden">
             <button
               type="button"
-              onClick={toggleMenu}
-              className="text-gray-500 hover:text-gray-700 focus:outline-none focus:text-gray-700"
+              onClick={() => setMobileMenuOpen(true)}
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-[#23374D]"
             >
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M3 5h14a1 1 0 010 2H3a1 1 0 010-2zm0 4h14a1 1 0 010 2H3a1 1 0 010-2zm0 4h14a1 1 0 010 2H3a1 1 0 010-2z" />
-              </svg>
+              <span className="sr-only">Open main menu</span>
+              <Bars3Icon aria-hidden="true" className="h-6 w-6" />
             </button>
           </div>
-
-          <div className={`${isMenuOpen ? 'block' : 'hidden'} w-full lg:flex lg:w-auto`}>
-            <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-              <li>
-                <Link
-                  to="home"
-                  smooth={true}
-                  duration={500}
-                  className="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50"
-                >
-                  Accueil
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="nos-services"
-                  smooth={true}
-                  duration={500}
-                  className="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50"
-                >
-                  Nos Services
-                </Link>
-              </li>
-
-              {/* Sous-menu Solutions */}
-              <li className="relative">
-                <button
-                  onClick={toggleSubMenu}
-                  className="flex items-center py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 w-full lg:w-auto"
-                >
-                  Solutions
-                  {isSubMenuOpen ? (
-                    <FaChevronUp className="ml-2" />
-                  ) : (
-                    <FaChevronDown className="ml-2" />
-                  )}
-                </button>
-                {isSubMenuOpen && (
-                  <ul className="absolute bg-white shadow-lg rounded-lg p-4 mt-2 w-48">
-                    <li>
-                      <Link
-                        to="consulting"
-                        smooth={true}
-                        duration={500}
-                        className="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50"
-                      >
-                        Consulting
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="migrations"
-                        smooth={true}
-                        duration={500}
-                        className="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50"
-                      >
-                        Migrations
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="types-de-prestation"
-                        smooth={true}
-                        duration={500}
-                        className="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50"
-                      >
-                        Types de Prestation
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="solutions-collaboratives"
-                        smooth={true}
-                        duration={500}
-                        className="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50"
-                      >
-                        Solutions Collaboratives
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="solutions-sauvegarde"
-                        smooth={true}
-                        duration={500}
-                        className="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50"
-                      >
-                        Solutions de Sauvegarde
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="infrastructure"
-                        smooth={true}
-                        duration={500}
-                        className="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50"
-                      >
-                        Solutions d'Infrastructure
-                      </Link>
-                    </li>
-                  </ul>
+          <PopoverGroup className="hidden lg:flex lg:gap-x-8">
+            {menuItems.map((item) => (
+              <div key={item.name} className="relative group">
+                {item.subMenu ? (
+                  <>
+                    <button
+                      onClick={() => setOpenSubMenu(openSubMenu === item.name ? null : item.name)}
+                      className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-[#23374D]"
+                    >
+                      {item.name}
+                      <ChevronDownIcon aria-hidden="true" className="h-5 w-5 flex-none text-[#1089FF]" />
+                      <span className="absolute bottom-[-4px] left-0 h-[2px] w-0 bg-[#1089FF] group-hover:w-full transition-all duration-500"></span>
+                    </button>
+                    {openSubMenu === item.name && (
+                      <div className="absolute z-10 mt-3 min-w-[200px] max-w-xs overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
+                        <div className="p-4">
+                          {item.subMenu.map((subItem) => (
+                            <Link
+                              key={subItem.name}
+                              to={subItem.href}
+                              className={`block px-4 py-2 text-sm hover:bg-[#1089FF] hover:text-white whitespace-nowrap ${
+                                location.pathname === subItem.href
+                                  ? 'border-l-4 border-[#1089FF] bg-[#E5E5E5]'
+                                  : 'text-[#23374D]'
+                              }`}
+                              onClick={handleLinkClick}
+                            >
+                              {subItem.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <Link
+                    to={item.href}
+                    className="text-sm font-semibold leading-6 text-[#23374D] relative"
+                    onClick={handleLinkClick}
+                  >
+                    {item.name}
+                    <span className="absolute bottom-[-4px] left-0 h-[2px] w-0 bg-[#1089FF] group-hover:w-full transition-all duration-500"></span>
+                  </Link>
                 )}
-              </li>
-              <li>
-                <Link
-                  to="products"
-                  smooth={true}
-                  duration={500}
-                  className="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50"
-                >
-                  Nos Produits
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="references"
-                  smooth={true}
-                  duration={500}
-                  className="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50"
-                >
-                  Nos Références
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="contact"
-                  smooth={true}
-                  duration={500}
-                  className="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50"
-                >
-                  Contactez-nous
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-  );
-};
+              </div>
+            ))}
+          </PopoverGroup>
+        </nav>
+      </header>
 
-export default Header;
+      <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
+        <div className="fixed inset-0 z-10 bg-black opacity-50" />
+        <DialogPanel className="fixed inset-y-0 right-0 z-20 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 transition-transform transform duration-300">
+          <div className="flex items-center justify-between">
+            <Link to="/" className="" onClick={handleLinkClick}>
+              <span className="sr-only">Your Company</span>
+              <img alt="Logo" src="/logo.png" className="h-16 w-auto md:hidden" />
+            </Link>
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(false)}
+              className="-m-2.5 rounded-md p-2.5 text-[#23374D]"
+            >
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon aria-hidden="true" className="h-6 w-6" />
+            </button>
+          </div>
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-gray-500/10">
+              <div className="space-y-2 py-6">
+                {menuItems.map((item) => (
+                  <Disclosure as="div" key={item.name} className="-mx-3">
+                    {item.subMenu ? (
+                      <>
+                        <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 text-base font-semibold leading-7 text-[#23374D] hover:bg-[#E5E5E5]">
+                          {item.name}
+                          <ChevronDownIcon aria-hidden="true" className="h-5 w-5 flex-none group-data-[open]:rotate-180" />
+                        </DisclosureButton>
+                        <DisclosurePanel className="mt-2 space-y-2 pl-6">
+                          {item.subMenu.map((subItem) => (
+                            <Link
+                              key={subItem.name}
+                              to={subItem.href}
+                              className="block rounded-lg py-2 text-sm font-semibold leading-7 text-[#23374D] hover:bg-[#1089FF] hover:text-white"
+                              onClick={handleLinkClick}
+                            >
+                              {subItem.name}
+                            </Link>
+                          ))}
+                        </DisclosurePanel>
+                      </>
+                    ) : (
+                      <Link to={item.href} className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-[#23374D] hover:bg-[#E5E5E5]" onClick={handleLinkClick}>
+                        {item.name}
+                      </Link>
+                    )}
+                  </Disclosure>
+                ))}
+              </div>
+            </div>
+          </div>
+        </DialogPanel>
+      </Dialog>
+    </>
+  );
+}

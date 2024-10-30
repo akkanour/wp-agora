@@ -2,7 +2,7 @@ import { Link } from 'react-scroll';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-white rounded-lg shadow m-4">
+    <footer className="">
       <div className="w-full mx-auto p-6">
         <div className="flex flex-col items-center mt-6">
           <h3 className="text-lg font-semibold mb-4">Agora Technology</h3>
