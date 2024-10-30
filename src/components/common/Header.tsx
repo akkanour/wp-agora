@@ -66,7 +66,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed top-0 w-full bg-white text-[#23374D] shadow-md z-[1040]">
+      <header className="fixed top-0 w-full bg-[#F5F7F8]  text-[#23374D] shadow-md z-[1040]">
         <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-4">
           <div className="flex lg:flex-1">
             <Link to="/" className="" onClick={() => handleLinkClick(null)}>
@@ -96,12 +96,12 @@ export default function Header() {
                       }`}
                     >
                       {item.name}
-                      <ChevronDownIcon aria-hidden="true" className="h-5 w-5 flex-none text-[#024CAA]" />
+                      <ChevronDownIcon aria-hidden="true" className="h-5 w-5 flex-none text-[#024CAA] " />
                       <span
                         className={`absolute bottom-[-4px] left-0 h-[2px] transition-all duration-500 ${
                           selectedMenu === item.name || openSubMenu === item.name
                             ? 'w-full bg-[#024CAA]'
-                            : 'w-0 group-hover:w-full bg-[#024CAA]'
+                            : 'w-0 group-hover:w-full bg-[#024CAA] '
                         }`}
                       ></span>
                     </button>
