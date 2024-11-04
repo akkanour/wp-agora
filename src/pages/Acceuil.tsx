@@ -1,9 +1,10 @@
 // @pages/Acceuil.tsx
+'use client';
 import React from 'react';
-import { FaCheckCircle } from 'react-icons/fa';
+import { FaBriefcase, FaCalendarAlt, FaCheckCircle, FaUsers } from 'react-icons/fa';
 const Acceuil: React.FC = () => {
   return (
-    <div className='font-sans'>
+    <div>
       {/* Section d'en-tête avec l'image de fond pleine page */}
       <div className="relative min-h-screen bg-cover bg-center bg-[url('/gs.jpg')]">
         <div className="absolute inset-0 bg-black opacity-80"></div> {/* Overlay sombre */}
@@ -39,49 +40,39 @@ const Acceuil: React.FC = () => {
               Agora Technolgy est au service des entreprises soucieuses d’assurer la protection de leurs informations sensibles. La force de notre organisation repose sur l’expertise de nos consultants et sur un puissant réseau de partenaires internationaux.
             </p>
           </div>
+          {/* Section de Faits saillants */}
+          <section id="faits-saillants" className="my-12">
+            <h2 className="text-2xl font-bold mb-8 text-center text-[#024CAA]">Faits saillants</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center items-center max-w-4xl mx-auto">
 
-          {/* Ruban de logos défilants en boucle infinie */}
-          <div className="overflow-hidden py-6">
-            <div className="flex gap-6 animate-scroll">
-              {[...Array(15)].map((_, index) => (
-                <div key={`original-${index}`} className="flex-shrink-0 w-32 h-20 bg-gray-100 rounded-md flex items-center justify-center">
-                  <img
-                    src={`/Picture${index + 1}.png`}
-                    alt={`Logo ${index + 1}`}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              ))}
-              {[...Array(15)].map((_, index) => (
-                <div key={`duplicate-${index}`} className="flex-shrink-0 w-32 h-20 bg-gray-100 rounded-md flex items-center justify-center">
-                  <img
-                    src={`/Picture${index + 1}.png`}
-                    alt={`Logo ${index + 1}`}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              ))}
+              {/* Depuis 2006 */}
+              <div className="flex flex-col items-center p-6 bg-[#F5F7F8] rounded-lg shadow-lg h-full w-full max-w-xs mx-auto md:max-w-none min-h-[200px]">
+                <FaCalendarAlt className="text-4xl text-[#024CAA]" />
+                <p className="text-2xl font-semibold text-[#23374D] mt-4 text-center">Depuis 2006</p>
+                <p className="text-sm text-[#23374D] text-justify">Au service des entreprises</p>
+              </div>
+
+              {/* +20 consultants */}
+              <div className="flex flex-col items-center p-6 bg-[#F5F7F8] rounded-lg shadow-lg h-full w-full max-w-xs mx-auto md:max-w-none min-h-[200px]">
+                <FaUsers className="text-4xl text-[#024CAA]" />
+                <p className="text-2xl font-semibold text-[#23374D] mt-4 text-center">+20 consultants</p>
+                <p className="text-sm text-[#23374D] text-justify">Experts en technologie</p>
+              </div>
+
+              {/* 25+ ans d'expérience */}
+              <div className="flex flex-col items-center p-6 bg-[#F5F7F8] rounded-lg shadow-lg h-full w-full max-w-xs mx-auto md:max-w-none min-h-[200px]">
+                <FaBriefcase className="text-4xl text-[#024CAA]" />
+                <p className="text-2xl font-semibold text-[#23374D] mt-4 text-center">25+ ans d'expérience</p>
+                <p className="text-sm text-[#23374D] text-justify">Capitalisée dans le secteur</p>
+              </div>
             </div>
-          </div>
+          </section>
+
+
         </div>
 
-        <style>{`
-    /* Animation en boucle continue et fluide */
-    @keyframes scroll {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-100%);
-      }
-    }
-    .animate-scroll {
-      display: flex;
-      
-      animation: scroll 30s linear infinite;
-    }
-  `}</style>
       </section>
+
 
 
 
@@ -104,23 +95,23 @@ const Acceuil: React.FC = () => {
           {/* Liste des raisons à droite */}
           <div className="space-y-4">
             <div className="flex items-center bg-white shadow-md p-6 rounded-lg text-[#23374D">
-              <img className=" mr-4" src='friends.png'/>
+              <img className=" mr-4" src='friends.png' />
               <h3 className="text-lg font-bold">Une équipe multidisciplinaire d’experts pointus</h3>
             </div>
             <div className="flex items-center bg-white shadow-md p-6 rounded-lg">
-            <img className=" mr-4" src='maple-leaf.png'/>
+              <img className=" mr-4" src='maple-leaf.png' />
               <h3 className="text-lg font-bold">Un écosystème de marques leaders & innovantes</h3>
             </div>
             <div className="flex items-center bg-white shadow-md p-6 rounded-lg">
-            <img className=" mr-4" src='idea-bulb.png'/>
+              <img className=" mr-4" src='idea-bulb.png' />
               <h3 className="text-lg font-bold">Une approche créative & globale des solutions</h3>
             </div>
             <div className="flex items-center bg-white shadow-md p-6 rounded-lg">
-            <img className=" mr-4" src='salary.png'/>
+              <img className=" mr-4" src='salary.png' />
               <h3 className="text-lg font-bold">Des investissements financiers durables</h3>
             </div>
             <div className="flex items-center bg-white shadow-md p-6 rounded-lg">
-            <img className=" mr-4" src='excellence.png'/>
+              <img className=" mr-4" src='excellence.png' />
               <h3 className="text-lg font-bold">L’excellence des résultats opérationnels</h3>
             </div>
           </div>

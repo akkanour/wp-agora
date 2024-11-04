@@ -1,4 +1,5 @@
 // @pages/Consulting.tsx
+'use client';
 import { FaBuilding, FaLaptopMedical, FaBalanceScale, FaNetworkWired, FaCloud, FaShieldAlt, FaUserTie, FaServer, FaChartLine, FaHandshake, FaRecycle, FaUserShield, FaTools, FaDatabase } from 'react-icons/fa';
 
 const Consulting: React.FC = () => {

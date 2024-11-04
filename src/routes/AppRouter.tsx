@@ -8,7 +8,6 @@ import Solutions from "@pages/Solutions";
 import Contact from "@pages/Contact";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import QuiSommesNous from "@pages/QuiSommesNous";
 import Partenaires from "@pages/Partenaires";
 import References from "@pages/References";
 import InterventionSurIncident from "@pages/InterventionSurIncident";
@@ -16,6 +15,10 @@ import ContratSupportMaintenance from "@pages/ContratSupportMaintenance";
 import InfogeranceGlobalePartielle from "@pages/InfogeranceGlobalePartielle";
 import RessourceEnRegie from "@pages/RessourceEnRegie";
 import IntegrationERP from "@pages/IntegrationERP";
+import QuiSommesNous from "@pages/QuiSommesNous";
+import EtudeBesoins from "@pages/EtudeBesoins";
+import RapportsLivrables from "@pages/RapportsLivrables";
+import Formations from "@pages/Formations";
 
 const AppRouter: React.FC = () => {
   const router = createBrowserRouter([
@@ -48,23 +51,23 @@ const AppRouter: React.FC = () => {
         {
           path: "consulting",
           element: <Consulting />,
+          children: [
+            { path: "etude-besoins", element: <EtudeBesoins /> },
+            // { path: "definir-perimetre-prestations", element: <DefinirPerimetrePrestations /> },
+            // { path: "etude-solutions-strategiques", element: <EtudeSolutionsStrategiques /> },
+            { path: "rapports-livrables", element: <RapportsLivrables /> },
+          ],
+        },
+        {
+          path: "formations",
+          element: <Formations />,
           // children: [
-          //   { path: "etude-besoins", element: <EtudeBesoins /> },
-          //   { path: "definir-perimetre-prestations", element: <DefinirPerimetrePrestations /> },
-          //   { path: "etude-solutions-strategiques", element: <EtudeSolutionsStrategiques /> },
-          //   { path: "rapports-livrables", element: <RapportsLivrables /> },
+          //   { path: "inter-entreprises", element: <InterEntreprises /> },
+          //   { path: "intra-entreprise", element: <IntraEntreprise /> },
+          //   { path: "formations-personnalisees", element: <FormationsPersonnalisees /> },
+          //   { path: "transfert-competences", element: <TransfertCompetences /> },
           // ],
         },
-        // {
-        //   path: "formations",
-        //   element: <Formations />,
-        //   children: [
-        //     { path: "inter-entreprises", element: <InterEntreprises /> },
-        //     { path: "intra-entreprise", element: <IntraEntreprise /> },
-        //     { path: "formations-personnalisees", element: <FormationsPersonnalisees /> },
-        //     { path: "transfert-competences", element: <TransfertCompetences /> },
-        //   ],
-        // },
         { path: "solutions", element: <Solutions /> },
         { path: "contact", element: <Contact /> },
       ],

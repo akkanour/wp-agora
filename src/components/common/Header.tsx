@@ -20,7 +20,7 @@ const menuItems = [
     name: 'Presentations',
     subMenu: [
       { name: 'Qui sommes-nous ?', href: '/presentations/qui-sommes-nous' },
-      { name: 'Partenaires', href: '/presentations/partenaires' },
+      { name: 'Nos Produits', href: '/presentations/nos-produits' },
       { name: 'Références', href: '/presentations/references' },
     ],
   },
@@ -72,13 +72,13 @@ export default function Header() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center w-full lg:text-left">
             <div className="flex items-center gap-1">
               <PhoneIcon className="h-5 w-5" />
-              <span>+27 71 501 2709</span>
+              <span>+212 522 989 026</span>
             </div>
-            <div className="flex items-center gap-1">
+            <div className="hidden md:flex items-center gap-1">
               <FaMailBulk className="h-5 w-5" />
               <span>services@agora-technology.com</span>
             </div>
-            <div className="flex items-center gap-1">
+            <div className="hidden md:flex items-center gap-1">
               <MapPinIcon className="h-5 w-5" />
               <span>227, Boulevard GHANDI, N° 2, 20380-Casablanca</span>
             </div>

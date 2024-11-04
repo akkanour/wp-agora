@@ -1,5 +1,5 @@
+'use client';
 import { Link } from 'react-scroll';
-
 const Footer: React.FC = () => {
   return (
     <footer className="">
