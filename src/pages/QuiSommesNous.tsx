@@ -1,22 +1,47 @@
 import React from 'react';
+import { FaUsers, FaBriefcase, FaCalendarAlt } from 'react-icons/fa';
  
 const QuiSommesNous: React.FC = () => {
   return (
-    <section id="home" className="flex flex-col md:flex-row  items-center justify-center p-2">
-      <div className="flex-1 m-8">
-        <h1 className="text-blue-600 text-4xl font-bold mb-4">AGORA TECHNOLOGY</h1>
-        <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-6">Is More Than Support</h2>
-        <p className="text-lg text-gray-600">
-          Une équipe d'Experts et de Consultants capitalisant +25 ans d’expérience à votre service intervenant sur les différentes technologies d'Infrastructures Microsoft, de Virtualisation, de Sauvegarde, de Sécurité, de Collaborations et de Cloud en Entreprise.
+    <>
+      {/* Section Qui sommes-nous */}
+      <section id="qui-sommes-nous" className="my-12 text-center">
+        <h2 className="text-3xl font-bold mb-4 text-[#024CAA]">Qui sommes-nous ?</h2>
+        <p className="text-lg leading-relaxed text-[#23374D] max-w-3xl mx-auto mb-8">
+          Entreprise spécialisée dans les Nouvelles Technologies d’Informations,
+          Agora Technology offre aux grandes entreprises, PME et PMI des prestations de services, de consulting,
+          et de formations avec une expertise de haut niveau. Une équipe de consultants expérimentés
+          intervient sur les technologies d'infrastructure Microsoft, de virtualisation, de sécurité et de cloud.
         </p>
-        <button className="mt-6 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-500">
-          Contactez-nous
-        </button>
-      </div>
-      <div className="flex-1 hidden md:block">
-        <img src='consultant.png' alt="Agora Technology" className="w-full h-[900px] rounded-md" />
-      </div>
-    </section>
+      </section>
+
+      {/* Section de Faits saillants */}
+      <section id="faits-saillants" className="my-12">
+        <h2 className="text-2xl font-bold mb-8 text-center text-[#024CAA]">Faits saillants</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center items-center max-w-4xl mx-auto">
+          {/* Depuis 2006 */}
+          <div className="flex flex-col items-center p-6 bg-[#F5F7F8] rounded-lg shadow-lg">
+            <FaCalendarAlt className="text-4xl text-[#024CAA]" />
+            <p className="text-2xl font-semibold text-[#23374D] mt-4">Depuis 2006</p>
+            <p className="text-sm text-[#23374D]">Au service des entreprises</p>
+          </div>
+
+          {/* +20 consultants */}
+          <div className="flex flex-col items-center p-6 bg-[#F5F7F8] rounded-lg shadow-lg">
+            <FaUsers className="text-4xl text-[#024CAA]" />
+            <p className="text-2xl font-semibold text-[#23374D] mt-4">+20 consultants</p>
+            <p className="text-sm text-[#23374D]">Experts en technologie</p>
+          </div>
+
+          {/* 25+ ans d'expérience */}
+          <div className="flex flex-col items-center p-6 bg-[#F5F7F8] rounded-lg shadow-lg">
+            <FaBriefcase className="text-4xl text-[#024CAA]" />
+            <p className="text-2xl font-semibold text-[#23374D] mt-4">25+ ans d'expérience</p>
+            <p className="text-sm text-[#23374D]">Capitalisée dans le secteur</p>
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 

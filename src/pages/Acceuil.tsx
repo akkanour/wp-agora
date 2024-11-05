@@ -1,6 +1,6 @@
-// @pages/Acceuil.tsx
+
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import { FaBriefcase, FaCalendarAlt, FaCheckCircle, FaUsers } from 'react-icons/fa';
 const Acceuil: React.FC = () => {
   return (
@@ -72,12 +72,6 @@ const Acceuil: React.FC = () => {
         </div>
 
       </section>
-
-
-
-
-
-
       {/* Section 2: Cinq raisons de choisir Agora Technolgy */}
       <section className="py-16 bg-[#F5F7F8]  px-6 md:px-12 lg:px-24">
         <div className="text-center mb-12">
@@ -117,62 +111,32 @@ const Acceuil: React.FC = () => {
           </div>
         </div>
       </section>
-
-
       {/* Section 3: Nos services */}
       <section className="py-16 bg-white px-6 md:px-12 lg:px-24">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-extrabold text-[#024CAA] ">Nos services</h2>
+          <h2 className="text-4xl font-extrabold text-[#024CAA]">Nos services</h2>
           <p className="text-lg mt-4 max-w-3xl mx-auto">
             Nos services s’étendent de la sécurisation des architectures à la formation, en passant par l’audit des systèmes, les opérations de maintenance et de support.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Carte 1: Maintenance & Support */}
-          <div
-            className="relative h-80 rounded-lg overflow-hidden flex items-end p-6 transition-transform duration-300 transform hover:shadow-lg hover:shadow-[#024CAA] hover:translate-y-1"
-            style={{ backgroundImage: "url('maintenance.png')" }}
-          >
-            <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay sombre */}
-            <div className="relative text-white">
-              <h3 className="text-2xl font-bold">Maintenance & Support</h3>
-              <p className="text-base mt-2">
-                Nous appuyons le management des solutions de cybersécurité. Nous intervenons sur les services de veille en vulnérabilités et élaborons des plans de remédiation.
-              </p>
-            </div>
-          </div>
-
-          {/* Carte 2: Sensibilisation & Formation */}
-          <div
-            className="relative h-80 rounded-lg overflow-hidden flex items-end p-6 transition-transform duration-300 transform hover:shadow-lg hover:shadow-[#024CAA] hover:translate-y-1"
-            style={{ backgroundImage: "url('/audit.png')" }}
-          >
-            <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay sombre */}
-            <div className="relative text-white">
-              <h3 className="text-2xl font-bold">Sensibilisation & Formation</h3>
-              <p className="text-base mt-2">
-                Notre entreprise met à disposition des clients un centre équipé des dernières technologies, où sont dispensées des formations sur mesure.
-              </p>
-            </div>
-          </div>
-
-          {/* Carte 3: Architecture & Intégration */}
-          <div
-            className="relative h-80 rounded-lg overflow-hidden flex items-end p-6 transition-transform duration-300 transform hover:shadow-lg hover:shadow-[#024CAA] hover:translate-y-1"
-            style={{ backgroundImage: "url('architecture.png')" }}
-          >
-            <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay sombre */}
-            <div className="relative text-white">
-              <h3 className="text-2xl font-bold">Architecture & Intégration</h3>
-              <p className="text-base mt-2">
-                Nous aidons les entreprises à protéger leurs données. Nous sécurisons les plateformes PC, les sites distants et la mobilité.
-              </p>
-            </div>
-          </div>
+          <ServiceCard
+            image="maintenance.png"
+            title="Prestation de service"
+            description="AGORA TECHNOLOGY propose aux entreprises des prestations adaptées aux contextes spécifiques du Client. Nous définissons ainsi une mission tenant compte de vos attentes et vos objectifs."
+          />
+          <ServiceCard
+            image="/audit.png"
+            title="Prestation sur Incident"
+            description="Disposant des compétences et des ressources nécessaires, AGORA TECHNOLOGY propose à ses Clients des prestations sur Incidents visant à aider d’urgence ses Clients devant une situation critique."
+          />
+          <ServiceCard
+            image="architecture.png"
+            title="Contrat de Support"
+            description="Vu l’importance des systèmes d’informations dans les tâches de gestion, de communication, partage d’information et d’organisation dans la production des entreprises, AGORA TECHNOLOGY propose à ses clients des contrats de support adaptés à leurs environnements pour résoudre les incidents informatiques."
+          />
         </div>
       </section>
-
-
 
       {/* Section 4: Offres */}
       <section className="py-16 bg-[#F5F7F8]  px-6 md:px-12 lg:px-24">
@@ -244,11 +208,37 @@ const Acceuil: React.FC = () => {
           </div>
         </div>
       </section>
-
-
-
     </div>
   );
 };
+interface ServiceCardProps {
+  image: string;
+  title: string;
+  description: string;
+}
+const ServiceCard = ({ image, title, description } : ServiceCardProps) => {
+  const [isExpanded, setIsExpanded] = useState(false);
 
+  const toggleExpanded = () => {
+    setIsExpanded(!isExpanded);
+  };
+
+  return (
+    <div className="relative h-80 rounded-lg overflow-hidden flex items-end p-8 transition-transform duration-300 transform hover:shadow-lg hover:shadow-[#024CAA] hover:translate-y-1" style={{ backgroundImage: `url(${image})` }}>
+      <div className="absolute inset-0 bg-black opacity-60"></div> {/* Overlay sombre */}
+      <div className="relative text-white">
+        <h3 className="text-2xl font-bold">{title}</h3>
+        <p className="text-base mt-2">
+          {isExpanded ? description : `${description.substring(0, 110)}...`}
+        </p>
+        <button
+          onClick={toggleExpanded}
+          className="text-sm font-semibold text-[#024CAA] mt-2"
+        >
+          {isExpanded ? "Voir moins" : "Lire plus"}
+        </button>
+      </div>
+    </div>
+  );
+};
 export default Acceuil;

@@ -17,11 +17,11 @@ import { FaMailBulk } from 'react-icons/fa';
 const menuItems = [
   { name: 'Accueil', href: '/' },
   {
-    name: 'Presentations',
+    name: 'À propos',
     subMenu: [
-      { name: 'Qui sommes-nous ?', href: '/presentations/qui-sommes-nous' },
-      { name: 'Nos Produits', href: '/presentations/nos-produits' },
-      { name: 'Références', href: '/presentations/references' },
+      { name: 'Qui sommes-nous ?', href: '/a-propos/qui-sommes-nous' },
+      { name: 'Nos Produits', href: '/a-propos/nos-produits' },
+      { name: 'Nos Références', href: '/a-propos/nos-references' },
     ],
   },
   {
@@ -36,12 +36,7 @@ const menuItems = [
   },
   {
     name: 'Consulting',
-    subMenu: [
-      { name: 'Étude des besoins', href: '/consulting' },
-      { name: 'Définir le périmètre des Prestations', href: '/consulting' },
-      { name: 'Étude et intégration des Solutions Stratégiques', href: '#' },
-      { name: 'Rapports et Livrables', href: '#' },
-    ],
+    href: '/consulting',  // Consulting est maintenant un lien direct sans sous-menu
   },
   { name: 'Solutions', href: '/solutions' },
   { name: 'Contact', href: '/contact' },
@@ -62,12 +57,12 @@ export default function Header() {
   const handleLinkClick = (menuName: string | null) => {
     setMobileMenuOpen(false);
     setOpenSubMenu(null);
-    setSelectedMenu(menuName); // met à jour le menu sélectionné pour garder la ligne soulignée
+    setSelectedMenu(menuName); // Met à jour le menu sélectionné pour garder la ligne soulignée
   };
 
   return (
     <>
-      <header className="fixed top-0 w-full bg-[#F5F7F8]  text-[#23374D] shadow-md z-[1040]">
+      <header className="fixed top-0 w-full bg-[#F5F7F8] text-[#23374D] shadow-md z-[1040]">
         <div className="bg-[#23374D] text-white text-sm py-2 px-4 md:px-6 flex flex-col items-center space-y-2 md:space-y-0 md:flex-col lg:flex-row lg:justify-between">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center w-full lg:text-left">
             <div className="flex items-center gap-1">
@@ -85,11 +80,7 @@ export default function Header() {
           </div>
         </div>
 
-
-
         <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-4">
-
-
           <div className="flex lg:flex-1">
             <Link to="/" className="" onClick={() => handleLinkClick(null)}>
               <span className="sr-only">Your Company</span>
@@ -113,15 +104,14 @@ export default function Header() {
                   <>
                     <button
                       onClick={() => handleMenuClick(item.name)}
-                      className={`flex items-center gap-x-1 text-sm font-semibold leading-6 ${selectedMenu === item.name ? 'text-[#024CAA]' : 'text-[#23374D]'
-                        }`}
+                      className={`flex items-center gap-x-1 text-sm font-semibold leading-6 ${selectedMenu === item.name ? 'text-[#024CAA]' : 'text-[#23374D]'}`}
                     >
                       {item.name}
-                      <ChevronDownIcon aria-hidden="true" className="h-5 w-5 flex-none text-[#024CAA] " />
+                      <ChevronDownIcon aria-hidden="true" className="h-5 w-5 flex-none text-[#024CAA]" />
                       <span
                         className={`absolute bottom-[-4px] left-0 h-[2px] transition-all duration-500 ${selectedMenu === item.name || openSubMenu === item.name
                           ? 'w-full bg-[#024CAA]'
-                          : 'w-0 group-hover:w-full bg-[#024CAA] '
+                          : 'w-0 group-hover:w-full bg-[#024CAA]'
                           }`}
                       ></span>
                     </button>
@@ -153,8 +143,7 @@ export default function Header() {
                   >
                     {item.name}
                     <span
-                      className={`absolute bottom-[-4px] left-0 h-[2px] transition-all duration-500 ${selectedMenu === item.name ? 'w-full bg-[#024CAA]' : 'w-0 group-hover:w-full bg-[#024CAA]'
-                        }`}
+                      className={`absolute bottom-[-4px] left-0 h-[2px] transition-all duration-500 ${selectedMenu === item.name ? 'w-full bg-[#024CAA]' : 'w-0 group-hover:w-full bg-[#024CAA]'}`}
                     ></span>
                   </Link>
                 )}
@@ -183,7 +172,7 @@ export default function Header() {
           </div>
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6">
+              <div className="space-y-2 pt-14">
                 {menuItems.map((item) => (
                   <Disclosure as="div" key={item.name} className="-mx-3">
                     {item.subMenu ? (
