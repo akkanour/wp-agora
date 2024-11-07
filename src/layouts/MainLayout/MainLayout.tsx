@@ -1,3 +1,4 @@
+// @pages/MainLayout.tsx
 import Footer from "@components/common/Footer";
 import Header from "@components/common/Header";
 import ScrollTopButton from "@components/common/ScrollTopButton";
@@ -8,11 +9,13 @@ const MainLayout = () => {
     <div className="flex flex-col min-h-screen">
       {/* Header */}
       <Header />
-      {/* Main Content avec un espace en haut pour éviter le chevauchement */}
-      <main className="flex-1 pt-[120px]"> {/* Ajustez `120px` selon la hauteur réelle du header */}
+
+      {/* Main Content */}
+      <main className="flex-1"> {/* Adjusts padding-top based on header height */}
         <Outlet />
         <ScrollTopButton />
       </main>
+
       {/* Footer */}
       <Footer />
     </div>

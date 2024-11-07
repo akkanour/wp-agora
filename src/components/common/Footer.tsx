@@ -1,23 +1,34 @@
 'use client';
-import { Link } from 'react-scroll';
+import { Link as RouterLink } from 'react-router-dom';
+
 const Footer: React.FC = () => {
   return (
-    <footer className="">
+    <footer className="border-t border-gray-300 mt-10">
       <div className="w-full mx-auto p-6">
         <div className="flex flex-col items-center mt-6">
-          <h3 className="text-lg font-semibold mb-4">Agora Technology</h3>
+          <h3 className="text-lg font-semibold mb-2">Agora Technology</h3>
+          <span className="text-sm text-gray-500 mb-4">Is More Than A Support</span>
           <ul className="flex flex-col items-center space-y-4 text-sm font-medium text-gray-500 md:flex-row md:space-y-0 md:space-x-6">
+            
             <li>
-              <Link to="home" smooth={true} duration={500} className="hover:underline">Accueil</Link>
+              <RouterLink to="/"  className="hover:underline ">
+                Accueil
+              </RouterLink>
             </li>
             <li>
-              <Link to="nos-services" smooth={true} duration={500} className="hover:underline">Nos Services</Link>
+              <RouterLink to="/consulting" className="hover:underline">
+                Consulting
+              </RouterLink>
             </li>
             <li>
-              <Link to="references" smooth={true} duration={500} className="hover:underline">Nos Références</Link>
+              <RouterLink to="/solutions"  className="hover:underline ">
+                Solutions
+              </RouterLink>
             </li>
             <li>
-              <Link to="contact" smooth={true} duration={500} className="hover:underline">Contactez-nous</Link>
+              <RouterLink to="/contact" className="hover:underline ">
+                Contact
+              </RouterLink>
             </li>
           </ul>
         </div>

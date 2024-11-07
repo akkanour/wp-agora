@@ -62,8 +62,8 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed top-0 w-full bg-[#F5F7F8] text-[#23374D] shadow-md z-[1040]">
-        <div className="bg-[#23374D] text-white text-sm py-2 px-4 md:px-6 flex flex-col items-center space-y-2 md:space-y-0 md:flex-col lg:flex-row lg:justify-between">
+      <header className="fixed top-0 w-full backdrop-blur bg-[#ffffff] text-[#23374D] shadow-md z-50">
+        <div className="bg-[#23374D] text-white text-sm py-1 px-4 md:px-6 flex flex-col items-center space-y-2 md:space-y-0 md:flex-col lg:flex-row lg:justify-between">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center w-full lg:text-left">
             <div className="flex items-center gap-1">
               <PhoneIcon className="h-5 w-5" />
@@ -80,7 +80,7 @@ export default function Header() {
           </div>
         </div>
 
-        <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-4">
+        <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between px-2 ">
           <div className="flex lg:flex-1">
             <Link to="/" className="" onClick={() => handleLinkClick(null)}>
               <span className="sr-only">Your Company</span>

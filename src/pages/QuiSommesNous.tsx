@@ -1,11 +1,11 @@
 import React from 'react';
 import { FaUsers, FaBriefcase, FaCalendarAlt } from 'react-icons/fa';
- 
+
 const QuiSommesNous: React.FC = () => {
   return (
     <>
       {/* Section Qui sommes-nous */}
-      <section id="qui-sommes-nous" className="my-12 text-center">
+      <section id="qui-sommes-nous" className=" text-center">
         <h2 className="text-3xl font-bold mb-4 text-[#024CAA]">Qui sommes-nous ?</h2>
         <p className="text-lg leading-relaxed text-[#23374D] max-w-3xl mx-auto mb-8">
           Entreprise spécialisée dans les Nouvelles Technologies d’Informations,
@@ -39,6 +39,21 @@ const QuiSommesNous: React.FC = () => {
             <p className="text-2xl font-semibold text-[#23374D] mt-4">25+ ans d'expérience</p>
             <p className="text-sm text-[#23374D]">Capitalisée dans le secteur</p>
           </div>
+        </div>
+      </section>
+
+      {/* Section Nos Valeurs */}
+      <section id="nos-valeurs" className="my-12">
+        <h2 className="text-2xl font-bold mb-8 text-center text-[#024CAA]">Nos Valeurs</h2>
+        <div className="flex flex-wrap justify-center gap-6">
+          {['Innovation', 'Excellence', 'Intégrité', 'Collaboration', 'Responsabilité'].map((valeur) => (
+            <div
+              key={valeur}
+              className="flex items-center justify-center w-32 h-32 bg-[#F5F7F8] rounded-full shadow-lg relative"
+            >
+              <span className="text-center text-[#23374D] font-semibold">{valeur}</span>
+            </div>
+          ))}
         </div>
       </section>
     </>
