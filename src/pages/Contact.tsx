@@ -16,7 +16,7 @@ export default function Contact() {
       itiRef.current = intlTelInput(phoneInputRef.current, {
         initialCountry: 'auto',
         geoIpLookup: (callback) => {
-          fetch('https://ipinfo.io/json?token=<YOUR_API_KEY>') // Remplacez <YOUR_API_KEY> par votre clé API
+          fetch('https://ipinfo.io/json?token=8aaa94ccef803e') 
             .then((response) => response.json())
             .then((data) => callback(data.country))
             .catch(() => callback('us'));
