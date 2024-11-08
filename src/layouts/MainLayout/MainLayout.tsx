@@ -11,7 +11,7 @@ const MainLayout = () => {
       <Header />
 
       {/* Main Content */}
-      <main className="flex-1"> {/* Adjusts padding-top based on header height */}
+      <main className="flex-1 mt-10"> {/* Adjusts padding-top based on header height */}
         <Outlet />
         <ScrollTopButton />
       </main>

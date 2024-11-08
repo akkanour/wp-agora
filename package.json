@@ -22,6 +22,7 @@
     "dompurify": "^3.1.5",
     "dotenv": "^16.4.5",
     "formik": "^2.4.6",
+    "intl-tel-input": "^24.7.0",
     "jspdf": "^2.5.1",
     "marked": "^13.0.0",
     "react": "^18.2.0",
