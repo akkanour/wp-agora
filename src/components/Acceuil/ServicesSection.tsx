@@ -4,7 +4,7 @@ import ServiceCard from './ServiceCard';
 
 const ServicesSection: React.FC = () => {
   return (
-    <section className="py-14 bg-white px-6 md:px-12 lg:px-24">
+    <section className="py-14 px-6 md:px-12 lg:px-24">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-extrabold text-[#024CAA]">Types de Prestation</h2>
         <p className="text-lg mt-4 max-w-3xl mx-auto">

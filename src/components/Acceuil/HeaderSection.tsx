@@ -1,24 +1,57 @@
-// @components/Acceuil_components/HeaderSection.tsx
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const HeaderSection: React.FC = () => {
+  const images = ['/bg-1.png', '/gs.jpg']; // Liste des images
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    // Changer d'image toutes les 5 secondes
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000);
+
+    // Nettoyage de l'intervalle au démontage du composant
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="flex flex-col py-24 px-6 relative min-h-screen bg-cover bg-center" style={{ backgroundImage: "url('/gs.jpg')" }}>
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black opacity-80"></div>
+    <div 
+      className="relative flex flex-col w-full h-screen bg-cover bg-center overflow-hidden"
+      style={{ 
+        backgroundImage: `url(${images[currentImageIndex]})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: window.innerWidth > 768 ? 'fixed' : 'scroll'  // Applique 'fixed' seulement sur les écrans larges
+      }}
+    >
+      {/* Overlay sombre pour un meilleur contraste du texte */}
+      <div className="absolute inset-0 bg-black bg-opacity-65"></div>
       
-      {/* Content Section */}
-      <div className="relative z-10 flex flex-col items-start justify-center min-h-screen text-white px-6 pt-20 md:px-12 lg:px-24">
+      {/* Section de contenu */}
+      <div className="relative z-10 flex flex-col items-start justify-center w-full h-full text-white px-4 pt-12 sm:px-6 md:px-12 lg:px-24">
         <header className="space-y-2">
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight">
-            AGORA TECHNOLOGY protect <br /> your business
-          </h1>
-          <p className="mt-4 text-lg md:text-2xl leading-relaxed">
-            Nous veillons sur vos données sensibles
-          </p>
+          {currentImageIndex === 0 ? (
+            <>
+              <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight">
+                AGORA TECHNOLOGY protect <br /> your business
+              </h1>
+              <p className="mt-4 text-lg md:text-2xl leading-relaxed">
+                Nous veillons sur vos données sensibles
+              </p>
+            </>
+          ) : (
+            <>
+              <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight">
+                Managed IT Security Services
+              </h1>
+              <p className="mt-4 text-lg md:text-2xl leading-relaxed">
+                Protect your business with Total Secure Technology's managed IT security services
+              </p>
+            </>
+          )}
         </header>
 
-        {/* Buttons Section */}
+        {/* Boutons d'action */}
         <div className="mt-6 flex flex-wrap gap-4">
           <a 
             href="/en-savoir-plus" 

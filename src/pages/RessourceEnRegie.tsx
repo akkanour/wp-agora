@@ -1,9 +1,9 @@
 // @pages/RessourceEnRegie.tsx
 const RessourceEnRegie: React.FC = () => {
   return (
-    <div className="p-8">
+    <div className="px-8">
       {/* Section Ressource en Régie */}
-      <section id="ressource-en-regie" className="mb-16">
+      <section id="ressource-en-regie" className="mt-20">
         <h2 className="text-3xl font-semibold text-[#23374D] mb-4">Ressource en Régie</h2>
         <p className="text-lg text-justify text-[#23374D]">
           Bénéficiez de l'expertise de nos consultants sur site pour renforcer vos équipes et répondre à des besoins ponctuels ou prolongés.

@@ -3,7 +3,7 @@ import React from 'react';
 
 const SolutionsSection: React.FC = () => {
   return (
-    <section className="py-14 bg-white px-6 md:px-12 lg:px-24">
+    <section className="py-14 px-6 md:px-12 lg:px-24">
       <div className="text-center mb-12">
         <h2 className="text-3xl font-extrabold text-[#23374D]">
           Nos solutions, <span className="text-[#1089FF]">se réinventer à l’ère du digital</span>

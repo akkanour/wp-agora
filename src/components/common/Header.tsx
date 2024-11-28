@@ -36,7 +36,7 @@ const menuItems = [
   },
   {
     name: 'Consulting',
-    href: '/consulting',  // Consulting est maintenant un lien direct sans sous-menu
+    href: '/consulting',
   },
   { name: 'Solutions', href: '/solutions' },
   { name: 'Contact', href: '/contact' },
@@ -48,22 +48,21 @@ export default function Header() {
   const [selectedMenu, setSelectedMenu] = useState<string | null>(null);
   const location = useLocation();
 
-  // Fonction pour gérer le clic sur le menu principal
   const handleMenuClick = (menuName: string | null) => {
-    setOpenSubMenu(openSubMenu === menuName ? null : menuName); // Toggle du sous-menu
+    setOpenSubMenu(openSubMenu === menuName ? null : menuName);
   };
 
-  // Ferme le menu mobile et les sous-menus après une navigation
   const handleLinkClick = (menuName: string | null) => {
     setMobileMenuOpen(false);
     setOpenSubMenu(null);
-    setSelectedMenu(menuName); // Met à jour le menu sélectionné pour garder la ligne soulignée
+    setSelectedMenu(menuName);
   };
 
   return (
     <>
-      <header className="fixed top-0 w-full bg-[#F5F7F8] backdrop-blur text-[#23374D] shadow-md z-[1040]">
-        <div className="bg-[#23374D] text-white text-sm py-2 px-4 md:px-6 flex flex-col items-center space-y-2 md:space-y-0 md:flex-col lg:flex-row lg:justify-between">
+      <header
+        className="fixed top-0 w-full bg-white backdrop-blur text-[#23374D] shadow-md z-[1040] rounded-b-3xl">
+        {/* <div className="bg-[#23374D] text-white text-sm py-2 px-4 md:px-6 flex flex-col items-center space-y-2 md:space-y-0 md:flex-col lg:flex-row lg:justify-between">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center w-full lg:text-left">
             <div className="flex items-center gap-1">
               <PhoneIcon className="h-5 w-5" />
@@ -78,13 +77,13 @@ export default function Header() {
               <span>227, Boulevard GHANDI, N° 2, 20380-Casablanca</span>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-4">
           <div className="flex lg:flex-1">
             <Link to="/" className="" onClick={() => handleLinkClick(null)}>
               <span className="sr-only">Your Company</span>
-              <img alt="Logo" src="/logo.png" className="h-16 lg:h-20 w-auto" />
+              <img alt="Logo" src="/logo-agora-technology-primary.png" className="h-16 lg:h-20 w-auto" />
             </Link>
           </div>
           <div className="flex lg:hidden">

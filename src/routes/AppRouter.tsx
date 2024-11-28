@@ -1,3 +1,5 @@
+import React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "@layouts/MainLayout/MainLayout";
 import Acceuil from "@pages/Acceuil";
 import NotFound from "@pages/NotFound";
@@ -5,8 +7,6 @@ import Services from "@pages/Services";
 import Consulting from "@pages/Consulting";
 import Solutions from "@pages/Solutions";
 import Contact from "@pages/Contact";
-
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import References from "@pages/References";
 import InterventionSurIncident from "@pages/InterventionSurIncident";
 import ContratSupportMaintenance from "@pages/ContratSupportMaintenance";
@@ -17,6 +17,7 @@ import QuiSommesNous from "@pages/QuiSommesNous";
 import Formations from "@pages/Formations";
 import Produits from "@pages/Produits";
 import Propos from "@pages/Propos";
+
 
 const AppRouter: React.FC = () => {
   const router = createBrowserRouter([
@@ -53,12 +54,6 @@ const AppRouter: React.FC = () => {
         {
           path: "formations",
           element: <Formations />,
-          // children: [
-          //   { path: "inter-entreprises", element: <InterEntreprises /> },
-          //   { path: "intra-entreprise", element: <IntraEntreprise /> },
-          //   { path: "formations-personnalisees", element: <FormationsPersonnalisees /> },
-          //   { path: "transfert-competences", element: <TransfertCompetences /> },
-          // ],
         },
         { path: "solutions", element: <Solutions /> },
         { path: "contact", element: <Contact /> },
