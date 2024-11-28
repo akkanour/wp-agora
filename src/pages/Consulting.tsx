@@ -8,12 +8,12 @@ import { HiOutlineDocumentReport } from 'react-icons/hi';
 
 const Consulting: React.FC = () => {
   return (
-    <section className="py-16 mt-20">
+    <section>
       <div className="container mx-auto px-6 md:px-16 lg:px-32 xl:px-44">
         
         {/* Header Section */}
-        <div className="text-center lg:text-left mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
+        <div className="text-justify mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-2">
             Consulting
           </h2>
           <p className="text-gray-700 leading-relaxed text-base md:text-lg max-w-2xl mx-auto lg:mx-0">

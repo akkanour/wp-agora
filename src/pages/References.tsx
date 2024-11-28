@@ -3,7 +3,7 @@ const References: React.FC = () => {
   return (
     <>
       {/* Section Références */}
-      <section id="references" className="mt-28 my-12 text-center">
+      <section id="references" className="text-center">
         <h2 className="text-2xl font-bold mb-4 text-[#024CAA]">Références</h2>
         <p className="text-lg text-[#23374D] max-w-2xl mx-auto mb-8">Nos clients et références dans divers secteurs d'activité.</p>
         {/* Liste des références */}

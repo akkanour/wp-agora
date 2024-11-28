@@ -9,8 +9,8 @@ const IntegrationERP: React.FC = () => {
   };
 
   return (
-    <div className="p-8 bg-[#F8FAFC] h-screen flex flex-col items-center">
-      <div className="text-center mb-12">
+    <div className="flex flex-col items-center">
+      <div className="text-center">
         <h1 className="text-4xl font-extrabold text-[#23374D] mb-4">Nos Services</h1>
         <p className="text-lg text-[#5A6978] max-w-2xl mx-auto">
           Du fait qu’aujourd’hui l’informatique est devenue le moteur de communication dans votre entreprise, 

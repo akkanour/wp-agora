@@ -11,8 +11,7 @@ import {
   PopoverGroup,
 } from '@headlessui/react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronDownIcon, XMarkIcon, Bars3Icon, PhoneIcon, MapPinIcon } from '@heroicons/react/20/solid';
-import { FaMailBulk } from 'react-icons/fa';
+import { ChevronDownIcon, XMarkIcon, Bars3Icon } from '@heroicons/react/20/solid';
 
 const menuItems = [
   { name: 'Accueil', href: '/' },
@@ -61,29 +60,13 @@ export default function Header() {
   return (
     <>
       <header
-        className="fixed top-0 w-full bg-white backdrop-blur text-[#23374D] shadow-md z-[1040] rounded-b-3xl">
-        {/* <div className="bg-[#23374D] text-white text-sm py-2 px-4 md:px-6 flex flex-col items-center space-y-2 md:space-y-0 md:flex-col lg:flex-row lg:justify-between">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center w-full lg:text-left">
-            <div className="flex items-center gap-1">
-              <PhoneIcon className="h-5 w-5" />
-              <span>+212 522 989 026</span>
-            </div>
-            <div className="hidden md:flex items-center gap-1">
-              <FaMailBulk className="h-5 w-5" />
-              <span>services@agora-technology.com</span>
-            </div>
-            <div className="hidden md:flex items-center gap-1">
-              <MapPinIcon className="h-5 w-5" />
-              <span>227, Boulevard GHANDI, N° 2, 20380-Casablanca</span>
-            </div>
-          </div>
-        </div> */}
+        className="fixed top-0 w-full z-50 bg-white shadow-md">
 
         <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-4">
           <div className="flex lg:flex-1">
             <Link to="/" className="" onClick={() => handleLinkClick(null)}>
               <span className="sr-only">Your Company</span>
-              <img alt="Logo" src="/logo-agora-technology-primary.png" className="h-16 lg:h-20 w-auto" />
+              <img alt="Logo" src="/logo-agora-technology-primary.png" className="h-20 w-auto" />
             </Link>
           </div>
           <div className="flex lg:hidden">

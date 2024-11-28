@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const InterventionSurIncident: React.FC = () => {
   return (
-    <div className="px-8  mt-20 min-h-screen grid justify-center items-center">
+    <div className="grid justify-center items-center">
       {/* Conteneur de texte et services placé strictement à gauche */}
       <div className="text-left max-w-xl">
         <h1 className="text-5xl font-extrabold text-[#2129] ">Nos Services</h1>

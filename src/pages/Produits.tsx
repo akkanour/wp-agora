@@ -3,7 +3,7 @@ const Produits: React.FC = () => {
   return (
     <>
       {/* Section Nos Produits */}
-      <section id="nos-produits" className="mt-20 my-12 text-center">
+      <section id="nos-produits" className="text-center">
         <h2 className="text-2xl font-bold mb-4 text-[#024CAA]">Nos Produits</h2>
         <p className="text-lg text-[#23374D] max-w-2xl mx-auto mb-8">Découvrez notre gamme de produits et partenaires stratégiques.</p>
         {/* Liste des produits */}

@@ -1,72 +1,54 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import './header.css';
 
 const HeaderSection: React.FC = () => {
-  const images = ['/bg-1.png', '/gs.jpg']; // Liste des images
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  useEffect(() => {
-    // Changer d'image toutes les 5 secondes
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000);
-
-    // Nettoyage de l'intervalle au démontage du composant
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <div 
-      className="relative flex flex-col w-full h-screen bg-cover bg-center overflow-hidden"
-      style={{ 
-        backgroundImage: `url(${images[currentImageIndex]})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: window.innerWidth > 768 ? 'fixed' : 'scroll'  // Applique 'fixed' seulement sur les écrans larges
-      }}
-    >
-      {/* Overlay sombre pour un meilleur contraste du texte */}
-      <div className="absolute inset-0 bg-black bg-opacity-65"></div>
-      
-      {/* Section de contenu */}
-      <div className="relative z-10 flex flex-col items-start justify-center w-full h-full text-white px-4 pt-12 sm:px-6 md:px-12 lg:px-24">
-        <header className="space-y-2">
-          {currentImageIndex === 0 ? (
-            <>
-              <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight">
-                AGORA TECHNOLOGY protect <br /> your business
-              </h1>
-              <p className="mt-4 text-lg md:text-2xl leading-relaxed">
-                Nous veillons sur vos données sensibles
-              </p>
-            </>
-          ) : (
-            <>
-              <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight">
-                Managed IT Security Services
-              </h1>
-              <p className="mt-4 text-lg md:text-2xl leading-relaxed">
-                Protect your business with Total Secure Technology's managed IT security services
-              </p>
-            </>
-          )}
-        </header>
-
-        {/* Boutons d'action */}
-        <div className="mt-6 flex flex-wrap gap-4">
-          <a 
-            href="/en-savoir-plus" 
-            className="bg-[#024CAA] hover:bg-[#1089FF] text-black font-semibold py-3 px-6 rounded-md transition duration-300 ease-in-out"
-          >
-            En savoir +
-          </a>
-          <a 
-            href="/demander-devis" 
-            className="bg-white text-black hover:bg-green-800 font-semibold py-3 px-6 rounded-md transition duration-300 ease-in-out"
-          >
-            Demander un devis
-          </a>
+    <div className="relative flex flex-col w-full h-screen bg-gradient-to-b ">
+      {/* Contenu principal */}
+      <div className="relative z-10 flex flex-col items-start justify-center w-full h-full px-8 py-20 max-w-5xl mx-auto">
+        <div className="highlight-container text-left">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-[#2D2927]">
+            Innovation et{' '}
+            <span className="highlight text-[#0135C6]">protection</span>{' '}
+            <span className="highlight text-[#0135C6]">de données</span>{' '}
+            critiques
+          </h1>
+          <h2 className="mt-4 text-lg sm:text-xl lg:text-2xl font-medium text-[#2D2927]">
+            avec{' '}
+            <span className="highlight-yellow font-bold text-[#FFD45C]">
+              AGORA TECHNOLOGY
+            </span>
+          </h2>
+          <p className="mt-6 text-base sm:text-lg lg:text-xl text-[#2D2927]">
+            Propulsez votre entreprise grâce à des solutions adaptées à vos
+            besoins spécifiques en infrastructure et cybersécurité.
+          </p>
+          <div className="button-container mt-8 flex gap-4">
+            <a
+              href="/en-savoir-plus"
+              className="button py-3 px-6 text-white font-semibold rounded-md transition-all duration-300 ease-in-out"
+              style={{
+                backgroundColor: '#0135C6',
+                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+              }}
+            >
+              En savoir plus
+            </a>
+            <a
+              href="/contactez-nous"
+              className="button py-3 px-6 font-semibold rounded-md transition-all duration-300 ease-in-out"
+              style={{
+                backgroundColor: '#FFD45C',
+                color: '#2D2927',
+                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+              }}
+            >
+              Contactez-nous
+            </a>
+          </div>
         </div>
       </div>
+
     </div>
   );
 };

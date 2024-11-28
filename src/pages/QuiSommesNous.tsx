@@ -5,7 +5,7 @@ const QuiSommesNous: React.FC = () => {
   return (
     <>
       {/* Section Qui sommes-nous */}
-      <section id="qui-sommes-nous" className="mt-36 text-center">
+      <section id="qui-sommes-nous" className="text-center">
         <h2 className="text-3xl font-bold mb-4 text-[#024CAA]">Qui sommes-nous ?</h2>
         <p className="text-lg leading-relaxed text-[#23374D] max-w-3xl mx-auto mb-8">
           Entreprise spécialisée dans les Nouvelles Technologies d’Informations,
@@ -16,7 +16,7 @@ const QuiSommesNous: React.FC = () => {
       </section>
 
       {/* Section de Faits saillants */}
-      <section id="faits-saillants" className="my-12">
+      <section id="faits-saillants" className="py-12">
         <h2 className="text-2xl font-bold mb-8 text-center text-[#024CAA]">Faits saillants</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center items-center max-w-4xl mx-auto">
           {/* Depuis 2006 */}

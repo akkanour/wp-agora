@@ -6,19 +6,14 @@ import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* Header */}
+    <>
       <Header />
-
-      {/* Main Content */}
-      <main className="flex-1 mt-10"> {/* Adjusts padding-top based on header height */}
+      <main className="flex-1 pt-28">
         <Outlet />
         <ScrollTopButton />
       </main>
-
-      {/* Footer */}
       <Footer />
-    </div>
+    </>
   );
 };
 
