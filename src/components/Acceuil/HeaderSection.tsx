@@ -1,15 +1,15 @@
 import React from 'react';
-import './header.css';
 
 const HeaderSection: React.FC = () => {
   return (
-    <div className="relative flex flex-col w-full h-screen bg-gradient-to-b ">
+    <div className="relative flex flex-col w-full h-screen bg-gradient-to-b "
+    style={{ backgroundImage: "url('./bg-texture.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
       {/* Contenu principal */}
       <div className="relative z-10 flex flex-col items-start justify-center w-full h-full px-8 py-20 max-w-5xl mx-auto">
         <div className="highlight-container text-left">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-[#2D2927]">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl  text-[#2D2927]">
             Innovation et{' '}
-            <span className="highlight text-[#0135C6]">protection</span>{' '}
+            <span className="highlight text-secondary-white">protection</span>{' '}
             <span className="highlight text-[#0135C6]">de données</span>{' '}
             critiques
           </h1>

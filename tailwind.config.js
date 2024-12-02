@@ -2,47 +2,32 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      // Ajout de la palette de couleurs
       colors: {
-        primary: { "50": "#eff6ff", "100": "#dbeafe", "200": "#bfdbfe", "300": "#93c5fd", "400": "#60a5fa", "500": "#3b82f6", "600": "#2563eb", "700": "#1d4ed8", "800": "#1e40af", "900": "#1e3a8a", "950": "#172554" }
-      }
+        primary: {
+          darkBlue: '#040C3D',
+          lightBlue: '#024CAA',
+          yellow: '#FFC107',
+          orange: '#FFA500',
+        },
+        secondary: {
+          violet: '#7C4DFF',
+          green: '#00C853',
+          lightYellow: '#FFD600',
+          lightOrange: '#FFAB40',
+          lightGray: '#F5F5F5',
+          white: '#FFFFFF',
+        },
+      },
+      // Ajout d'une grille spécifique
+      gridTemplateRows: {
+        layout: 'auto 2fr auto', // Header, contenu extensible, Footer
+      },
     },
     fontFamily: {
-      'body': [
-        'Inter',
-        'Jost', 'sans-serif',
-        'ui-sans-serif',
-        'system-ui',
-        '-apple-system',
-        'system-ui',
-        'Segoe UI',
-        'Roboto',
-        'Helvetica Neue',
-        'Arial',
-        'Noto Sans',
-        'sans-serif',
-        'Apple Color Emoji',
-        'Segoe UI Emoji',
-        'Segoe UI Symbol',
-        'Noto Color Emoji'
-      ],
-      'sans': [
-        'Jost', 'sans-serif',
-        'Inter',
-        'ui-sans-serif',
-        'system-ui',
-        '-apple-system',
-        'system-ui',
-        'Segoe UI',
-        'Roboto',
-        'Helvetica Neue',
-        'Arial',
-        'Noto Sans',
-        'sans-serif',
-        'Apple Color Emoji',
-        'Segoe UI Emoji',
-        'Segoe UI Symbol',
-        'Noto Color Emoji'
-      ]
+      uniqueTitle: ['Marker Felt', 'cursive'], // Pour les titres uniques
+      title: ['Minion Variable', 'serif'], // Pour les autres titres
+      body: ['Montserrat', 'sans-serif'], // Pour le texte général
     },
   },
   plugins: [],

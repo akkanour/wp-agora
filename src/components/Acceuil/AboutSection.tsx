@@ -9,8 +9,8 @@ const AboutSection: React.FC = () => {
         
         {/* About Agora Technology */}
         <div>
-          <h2 className="text-3xl lg:text-4xl font-extrabold mb-4 text-[#024CAA]">À propos de Agora Technology</h2>
-          <p className="text-lg md:text-2xl mb-4 leading-relaxed text-left">
+          <h2 className="text-[40px] font-extrabold mb-4 text-[#024CAA]">À propos de Agora Technology</h2>
+          <p className="text-[18px] mb-4 leading-relaxed ">
             Agora Technology est au service des entreprises soucieuses d’assurer la protection de leurs informations sensibles. La force de notre organisation repose sur l’expertise de nos consultants et sur un puissant réseau de partenaires internationaux.
           </p>
         </div>
