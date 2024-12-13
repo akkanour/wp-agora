@@ -14,3 +14,7 @@
       @apply font-body; /* Texte général avec Montserrat */
     }
   }
+  footer {
+    border-top: 1px solid #051565; /* Ligne au-dessus du footer */
+  }
+  

@@ -4,12 +4,12 @@ import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-primary-darkBlue text-additional-white font-body text-sm py-12">
+    <footer className="bg-primary-darkBlue text-additional-white font-body text-sm py-12 ">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_0.5fr_1fr_1fr] gap-8">
           {/* Logo et description */}
           <div className="space-y-6">
-            <img src="/logos-AT/AT-2.png" alt="Agora Technology" className="w-[80%] h-auto md:w-auto" />
+            <img src="/logos-AT/AT-2.png" alt="Agora Technology" className="w-[60%] h-auto md:w-[70%]" />
             <p>
               Services, consulting, et formations pour accompagner votre entreprise dans ses transformations technologiques.
             </p>

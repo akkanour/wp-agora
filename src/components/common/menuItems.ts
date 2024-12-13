@@ -23,5 +23,6 @@ export const menuItems = [
       href: '/consulting',
     },
     { name: 'Solutions', href: '/solutions' },
-    { name: 'Contact', href: '/contact' },
+    
+    
   ];
