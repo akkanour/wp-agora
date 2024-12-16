@@ -7,7 +7,7 @@ const QuiSommesNous: React.FC = () => {
       {/* Section Qui sommes-nous */}
       <section id="qui-sommes-nous" className="text-center">
         <h2 className="text-3xl font-bold mb-4 text-[#024CAA]">Qui sommes-nous ?</h2>
-        <p className="text-lg leading-relaxed text-[#23374D] max-w-3xl mx-auto mb-8">
+        <p className="text-lg leading-relaxed text-[#23374D] mb-8">
           Entreprise spécialisée dans les Nouvelles Technologies d’Informations,
           Agora Technology offre aux grandes entreprises, PME et PMI des prestations de services, de consulting,
           et de formations avec une expertise de haut niveau. Une équipe de consultants expérimentés

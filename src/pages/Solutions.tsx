@@ -3,9 +3,11 @@ import SolutionsSection from "@components/Acceuil/SolutionsSection";
 // @pages/Solutions.tsx
 const Solutions: React.FC = () => {
     return (
-      <div className="container mx-auto px-6 md:px-16 lg:px-32 xl:px-44">
-        <section className="space-y-6 text-gray-700 text-justify">
-      <h2 className="text-3xl font-extrabold text-[#024CAA] mb-6">Nos Solutions</h2>
+      <div className="font-body text-primary-dark w-full space-y-12">
+      {/* Section avec texte centré dans un conteneur */}
+      <section className="w-full">
+        <div className="max-w-7xl mx-auto px-4 lg:px-0 space-y-6">
+          <h2 className="text-[48px] text-primary-darkBlue font-title font-bold">Nos Solutions</h2>
       <p >
         Chez <strong>AGORA TECHNOLOGY</strong>, nous mettons en avant notre expertise approfondie en matière de technologies et de services innovants, visant à répondre aux exigences croissantes en matière de sécurité, de performance et de flexibilité des infrastructures informatiques modernes.
       </p>
@@ -18,6 +20,7 @@ const Solutions: React.FC = () => {
       <p >
         Grâce à des outils spécialisés comme <strong>ManageEngine</strong> pour la gestion et l’audit d’Active Directory, ainsi que des modules ERP et DMS pour la gestion commerciale et financière, nous aidons nos clients à automatiser, simplifier et sécuriser leurs processus, améliorant ainsi leur efficacité et leur rentabilité. Avec plus de 25 ans d’expérience dans le secteur, notre équipe de consultants offre une expertise technique et stratégique, garantissant des solutions sur mesure adaptées à chaque défi spécifique rencontré par nos clients.
       </p>
+      </div>
     </section>
         <SolutionsSection/>
       </div>

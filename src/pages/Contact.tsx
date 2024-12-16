@@ -1,7 +1,7 @@
 
 export default function Contact() {
   return (
-    <div className="container mx-auto px-6 md:px-16 lg:px-32 xl:px-44">
+    <div className="">
       <div className="mx-auto max-w-2xl text-center">
         <h2 className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Contactez-nous</h2>
         <p className="mt-2 text-lg text-gray-600">Nous sommes à votre disposition pour toute information supplémentaire.</p>

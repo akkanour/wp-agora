@@ -1,4 +1,3 @@
-// @components/ClientSection.tsx
 import React, { useState, useEffect, useCallback } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
@@ -54,49 +53,53 @@ const ClientSection: React.FC = () => {
   const displayedLogos = clientLogos.slice(currentIndex, currentIndex + logosPerPage);
 
   return (
-    <section className="py-6 px-8 md:px-12 lg:px-24 flex flex-col justify-center items-center space-y-8">
-      {/* Section title */}
-      <div className="text-start md:text-center">
-        <h2 className="text-3xl font-extrabold text-[#024CAA]">Ils nous font confiance</h2>
-        <p className="lg:text-xl mt-2 text-[#23374D]">
-          Nos clients sont de grands groupes du CAC40 et des ETI qui souhaitent rendre plus
-          productive leur façon de délivrer l’IT aux métiers et ainsi faire de leur SI un levier
-          de performance et de rentabilité.
-        </p>
-      </div>
-
-      {/* Client logos */}
-      <div className="flex items-center justify-center space-x-4 w-full">
-        <button
-          onClick={showPrev}
-          className="p-2 bg-gray-300 rounded-full hidden sm:inline-flex"
-        >
-          <FaChevronLeft className="text-gray-700" />
-        </button>
-
-        <div
-          className={`flex justify-center space-x-4 transition-opacity duration-500 ${
-            fade ? 'opacity-0' : 'opacity-100'
-          }`}
-          style={{ width: logosPerPage * 120 + 'px' }}
-        >
-          {displayedLogos.map((logo, index) => (
-            <img
-              key={index}
-              src={logo}
-              alt={`Client logo ${index + 1}`}
-              className="h-24 md:h-27 w-24 md:w-27 object-contain"
-              style={{ maxWidth: '100px' }}
-            />
-          ))}
+    <section className="w-full py-12 bg-white">
+      {/* Conteneur interne aligné */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
+        {/* Section title */}
+        <div className="text-center mb-8">
+          <h2 className="text-3xl lg:text-4xl font-extrabold text-[#024CAA]">Ils nous font confiance</h2>
+          <p className="text-lg lg:text-xl mt-4 text-[#23374D] max-w-3xl mx-auto">
+            Nos clients sont de grands groupes du CAC40 et des ETI qui souhaitent rendre plus productive leur façon de délivrer l’IT aux métiers et ainsi faire de leur SI un levier de performance et de rentabilité.
+          </p>
         </div>
 
-        <button
-          onClick={showNext}
-          className="p-2 bg-gray-300 rounded-full hidden sm:inline-flex"
-        >
-          <FaChevronRight className="text-gray-700" />
-        </button>
+        {/* Client logos */}
+        <div className="flex items-center justify-center space-x-4 w-full">
+          {/* Previous Button */}
+          <button
+            onClick={showPrev}
+            className="p-2 bg-gray-300 rounded-full hidden sm:inline-flex hover:bg-gray-400"
+          >
+            <FaChevronLeft className="text-gray-700" />
+          </button>
+
+          {/* Logos */}
+          <div
+            className={`flex justify-center space-x-4 transition-opacity duration-500 ${
+              fade ? 'opacity-0' : 'opacity-100'
+            }`}
+            style={{ width: logosPerPage * 120 + 'px' }}
+          >
+            {displayedLogos.map((logo, index) => (
+              <img
+                key={index}
+                src={logo}
+                alt={`Client logo ${index + 1}`}
+                className="h-20 w-20 md:h-24 md:w-24 object-contain transition-transform duration-300 hover:scale-105"
+                style={{ maxWidth: '100px' }}
+              />
+            ))}
+          </div>
+
+          {/* Next Button */}
+          <button
+            onClick={showNext}
+            className="p-2 bg-gray-300 rounded-full hidden sm:inline-flex hover:bg-gray-400"
+          >
+            <FaChevronRight className="text-gray-700" />
+          </button>
+        </div>
       </div>
     </section>
   );

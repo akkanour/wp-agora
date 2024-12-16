@@ -1,4 +1,3 @@
-// @components/ProductSection.tsx
 import React, { useState, useEffect, useCallback } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
@@ -55,43 +54,43 @@ const ProductSection: React.FC = () => {
   const displayedProducts = productImages.slice(currentIndex, currentIndex + productsPerPage);
 
   return (
-    <section className="py-6 px-6 md:px-12 lg:px-24 flex flex-col justify-center items-center space-y-8">
-      {/* Section Title */}
-      <div className="text-center">
-        <h2 className="text-3xl lg:text-4xl font-extrabold text-[#024CAA]">Nos Produits</h2>
-        <p className="text-lg md:text-2xl mt-2 text-gray-700">
-          Découvrez notre gamme de produits qui répond aux besoins de nos clients avec innovation et fiabilité.
-        </p>
-      </div>
-
-      {/* Product Images */}
-      <div className="flex items-center justify-center space-x-4 w-full">
-        {/* Previous Button */}
-        <button onClick={showPrev} className="p-2 bg-gray-300 rounded-full hidden sm:inline-flex">
-          <FaChevronLeft className="text-gray-700" />
-        </button>
-
-        <div
-          className={`flex justify-center space-x-6 transition-opacity duration-500 ${
-            fade ? 'opacity-0' : 'opacity-100'
-          }`}
-          style={{ width: productsPerPage * 120 + 'px' }}
-        >
-          {displayedProducts.map((product, index) => (
-            <img
-              key={index}
-              src={product}
-              alt={`Product ${index + 1}`}
-              className="h-24 md:h-27 w-24 md:w-27 object-contain"
-              style={{ maxWidth: '120px' }}
-            />
-          ))}
+    <section className="w-full py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0 flex flex-col justify-center items-center space-y-8">
+        {/* Section Title */}
+        <div className="text-center">
+          <h2 className="text-3xl lg:text-4xl font-extrabold text-primary-darkBlue">Nos Produits</h2>
+          <p className="text-lg lg:text-2xl font-extralight mt-2">
+            Découvrez notre gamme de produits qui répond aux besoins de nos clients avec innovation et fiabilité.
+          </p>
         </div>
 
-        {/* Next Button */}
-        <button onClick={showNext} className="p-2 bg-gray-300 rounded-full hidden sm:inline-flex">
-          <FaChevronRight className="text-gray-700" />
-        </button>
+        {/* Product Images */}
+        <div className="flex items-center justify-center space-x-4 w-full">
+          {/* Previous Button */}
+          <button onClick={showPrev} className="p-2 bg-gray-300 rounded-full hidden sm:inline-flex">
+            <FaChevronLeft className="text-gray-700" />
+          </button>
+
+          <div
+            className={`flex justify-center space-x-6 transition-opacity duration-500 ${fade ? 'opacity-0' : 'opacity-100'}`}
+            style={{ width: productsPerPage * 120 + 'px' }}
+          >
+            {displayedProducts.map((product, index) => (
+              <img
+                key={index}
+                src={product}
+                alt={`Product ${index + 1}`}
+                className="h-24 md:h-27 w-24 md:w-27 object-contain"
+                style={{ maxWidth: '120px' }}
+              />
+            ))}
+          </div>
+
+          {/* Next Button */}
+          <button onClick={showNext} className="p-2 bg-gray-300 rounded-full hidden sm:inline-flex">
+            <FaChevronRight className="text-gray-700" />
+          </button>
+        </div>
       </div>
     </section>
   );

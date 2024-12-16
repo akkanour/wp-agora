@@ -28,9 +28,22 @@ const ScrollTopButton: React.FC = () => {
       {showScrollTopButton && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-5 right-5 bg-additional-paleYellow text-primary-dark hover:text-additional-white p-3 rounded-full hover:bg-additional-peach"
+          className="fixed bottom-5 right-5 lg:right-5 lg:-bottom-2 bg-secondary-violet text-additional-white p-3 rounded-md shadow-lg hover:bg-additional-purple"
+          style={{
+            width: '40px',
+            height: '40px',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6 lg:-translate-y-1" // Déplace l'icône légèrement vers le haut sur desktop
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 15l7-7 7 7" />
           </svg>
         </button>

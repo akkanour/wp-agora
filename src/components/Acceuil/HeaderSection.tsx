@@ -1,56 +1,48 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const HeaderSection: React.FC = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Détecter si l'utilisateur est sur un appareil mobile
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
-    <div
-  className="relative flex flex-col w-full h-screen"
-  style={{ backgroundImage: "url('./bg-texture.png')", backgroundSize: "cover", backgroundPosition: "center" }}
->
+    <div className="relative flex flex-col w-full h-screen">
+      {/* Vidéo en arrière-plan avec z-0 */}
+      <video
+        className="absolute top-0 left-0 w-full h-full object-cover"
+        src={isMobile ? './videos/vid-bg-mobile.mp4' : './videos/vid-bg-4k.mp4'}
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
+
       {/* Contenu principal */}
-      <div className="relative z-10 flex flex-col items-start justify-center w-full h-full px-8 py-20 max-w-5xl mx-auto">
-        <div className="highlight-container text-left">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-white">
-            Innovation et{' '}
-            <span className="highlight text-white">protection</span>{' '}
-            <span className="highlight text-white">de données</span>{' '}
-            critiques
-          </h1>
-          <h2 className="mt-4 text-lg sm:text-xl lg:text-2xl font-medium text-white">
-            avec{' '}
-            <span className="highlight-yellow font-bold text-[#FFD45C]">
-              AGORA TECHNOLOGY
-            </span>
-          </h2>
-          <p className="mt-6 text-base sm:text-lg lg:text-xl text-white">
-            Propulsez votre entreprise grâce à des solutions adaptées à vos
-            besoins spécifiques en infrastructure et cybersécurité.
-          </p>
-          <div className="button-container mt-8 flex gap-4">
-            <a
-              href="/en-savoir-plus"
-              className="button py-3 px-6 text-white font-semibold rounded-md transition-all duration-300 ease-in-out"
-              style={{
-                backgroundColor: '#0135C6',
-                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-              }}
-            >
-              En savoir plus
-            </a>
-            <a
-              href="/contactez-nous"
-              className="button py-3 px-6 font-semibold rounded-md transition-all duration-300 ease-in-out"
-              style={{
-                backgroundColor: '#FFD45C',
-                color: '#2D2927',
-                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-              }}
-            >
-              Contactez-nous
-            </a>
-          </div>
+      <div className="relative flex flex-col justify-center w-full h-full px-4 sm:px-6 lg:px-0 mx-auto max-w-7xl z-20">
+    <div className={`${isMobile ? 'w-full' : 'max-w-[50%]'} transition-all duration-300`}>
+      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-white">
+        Innovation et protection de données critiques
+      </h1>
+      <p className="mt-6 text-base sm:text-lg lg:text-xl text-white">
+        Propulsez votre entreprise grâce à des solutions adaptées...
+      </p>
+      <div className="button-container mt-8 flex gap-4">
+        <a href="/en-savoir-plus" className="button py-3 px-6 rounded-[4px] text-white" style={{ backgroundColor: '#0135C6' }}>
+          En savoir plus
+        </a>
+      </div>
         </div>
       </div>
-
     </div>
   );
 };

@@ -9,7 +9,7 @@ import { HiOutlineDocumentReport } from 'react-icons/hi';
 const Consulting: React.FC = () => {
   return (
     <section>
-      <div className="container mx-auto px-6 md:px-16 lg:px-32 xl:px-44">
+      <div className="">
         
         {/* Header Section */}
         <div className="text-justify mb-12">

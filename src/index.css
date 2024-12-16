@@ -1,20 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@layer base {
-    h1.unique-title {
-      @apply font-uniqueTitle; /* Titres spécifiques avec Marker Felt */
-    }
-  
-    h1, h2, h3, h4, h5, h6 {
-      @apply font-title; /* Titres standards avec Minion Variable */
-    }
-  
-    body, p, span, div {
-      @apply font-body; /* Texte général avec Montserrat */
-    }
-  }
-  footer {
-    border-top: 1px solid #051565; /* Ligne au-dessus du footer */
-  }
-  
